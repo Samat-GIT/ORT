@@ -1,0 +1,50 @@
+﻿@model IEnumerable<webort.Models.HeadOfTeacherModel>
+@using GridMvc.Html
+<hr />
+<p>
+    <a href="Create" class="btn btn-primary"><span class='glyphicon glyphicon-plus'></span>Добавить <span class="glyphicon glyphicon-user"></span></a>
+</p>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+<div class="card" style="width: 18rem;">
+    @Html.Grid(Model).Columns(Columns =>
+{
+    Columns.Add(c => c.surname).Titled("Фамилия").Filterable(true);
+    Columns.Add(c => c.first_name).Titled("Имя").Filterable(true);
+    //  Columns.Add(c => c.third_Name).Titled("Отчество").Filterable(true);
+    // Columns.Add(c => c.birth_date).Titled("Дата рождения").Filterable(false);
+    // Columns.Add(c => c.gender).Titled("Пол").Filterable(true);
+    Columns.Add(c => c.phone_number).Titled("Номер телефона").Filterable(false);
+    Columns.Add(c => c.inn_passport).Titled("ИНН паспорт").Filterable(true);
+    Columns.Add(c => c.address).Titled("Адрес").Filterable(true);
+    //  Columns.Add(c => c.email).Titled("Email").Filterable(false);
+    Columns.Add(c => c.date_of_appointment).Format("{0: MM/dd/yyyy}").Titled("Дата назначения").Filterable(true);
+    Columns.Add(c => c.FiredEmpl).Titled("Статус").Filterable(true);
+    // Columns.Add(c => c.position).Titled("Должность").Filterable(false);
+    // Columns.Add(c => c.access_level).Titled("Уровень доступа").Filterable(false);
+    Columns.Add(c => c.schoolName).Titled("Наименование школы").Filterable(true);
+    Columns.Add(c => c.schoolCode).Titled("Код школы").Filterable(true);
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnEdit =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Edit", new { id = btnEdit.id_HeadOfTeacher }) + "' class='btn btn-success'><span class='glyphicon glyphicon-edit'></span></a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnDet =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Details", new { id = btnDet.id_HeadOfTeacher }) + "' class='btn btn-info'><span class='glyphicon glyphicon-info-sign'></span></a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnfired =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Create", new { id = btnfired.id_HeadOfTeacher }) + "' class='btn btn-primary'><span class='glyphicon glyphicon-remove-circle'></span></a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnDel =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Create", new { id = btnDel.id_HeadOfTeacher }) + "' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+}).WithPaging(6).WithGridItemsCount("Общее количество строк").Sortable(true)
+</div>

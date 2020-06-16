@@ -1,0 +1,49 @@
+﻿@model IEnumerable<webort.Models.SubjectsModel>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "main";
+}
+<hr />
+<p>
+    <a class="btn btn-primary"><span class='glyphicon glyphicon-plus'></span>Добавить предмет</a>
+</p>
+
+<div class="modal fade" id="ModalCreate" role="dialog" data-url='@Url.Action("Create","Subjects")'></div>
+<div class="modal fade" id="ModalDelete" role="dialog" data-url='@Url.Action("Delete","Subjects")'></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+<div class="card" style="width: 18rem;">
+    @Html.Grid(Model).Columns(Columns =>
+{
+    Columns.Add(c => c.subject_name).Titled("Наименование предмет").Filterable(true);
+    Columns.Add(c => c.subject_Price).Titled("Цена за предмет").Filterable(false);
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnEdit =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Edit", new { id = btnEdit.id_subject }) + "' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Edit</a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnDel =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Delete", new { id = btnDel.id_subject }) + "' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Delete</a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+    }).WithPaging(6)
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn-primary').click(function () {
+            var url = $('#ModalCreate').data('url');
+            $.get(url, function (data) {
+                $("#ModalCreate").html(data);
+                $("#ModalCreate").modal('show');
+            })
+        })
+    })
+
+</script>
+
+

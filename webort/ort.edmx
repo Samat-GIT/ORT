@@ -1,0 +1,2582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище ORTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Access_level">
+          <Key>
+            <PropertyRef Name="ID_access_level" />
+          </Key>
+          <Property Name="ID_access_level" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Access_level" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Access_ticket">
+          <Key>
+            <PropertyRef Name="ID_ticet" />
+          </Key>
+          <Property Name="ID_ticet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Photo_3x4" Type="varchar(max)" Nullable="false" />
+          <Property Name="Photo_signature" Type="varchar(max)" Nullable="false" />
+          <Property Name="Photo_of_passport" Type="varchar(max)" />
+          <Property Name="Document_number" Type="varchar" MaxLength="20" />
+          <Property Name="Notification" Type="varchar(max)" />
+          <Property Name="Document_selection" Type="bit" />
+          <Property Name="Graduent" Type="int" />
+        </EntityType>
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="id_Autorization" />
+          </Key>
+          <Property Name="id_Autorization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="300" />
+          <Property Name="Password" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Category_Graduent">
+          <Key>
+            <PropertyRef Name="ID_Category" />
+          </Key>
+          <Property Name="ID_Category" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_Graduent" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="District(town)">
+          <Key>
+            <PropertyRef Name="ID_District" />
+          </Key>
+          <Property Name="ID_District" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="District_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Password_district" Type="int" Nullable="false" />
+          <Property Name="Region" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID_Employee" />
+          </Key>
+          <Property Name="ID_Employee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="First_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Third_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Birth_date" Type="smalldatetime" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone_number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="INN_passport" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="70" />
+          <Property Name="Date_of_appointment" Type="smalldatetime" />
+          <Property Name="Fired" Type="bit" />
+          <Property Name="Position" Type="tinyint" />
+          <Property Name="Access_level" Type="tinyint" />
+          <Property Name="District" Type="smallint" />
+          <Property Name="School" Type="smallint" />
+          <Property Name="Authotization" Type="int" />
+        </EntityType>
+        <EntityType Name="Fired_Employee">
+          <Key>
+            <PropertyRef Name="id_fired" />
+          </Key>
+          <Property Name="id_fired" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_leavingFierd" Type="smalldatetime" />
+          <Property Name="Date_appointmentFired" Type="smalldatetime" />
+          <Property Name="ID_Employee" Type="int" />
+        </EntityType>
+        <EntityType Name="Graduant">
+          <Key>
+            <PropertyRef Name="ID_Graduant" />
+          </Key>
+          <Property Name="ID_Graduant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sur_name" Type="varchar" MaxLength="30" />
+          <Property Name="First_name" Type="varchar" MaxLength="30" />
+          <Property Name="Third_name" Type="varchar" MaxLength="30" />
+          <Property Name="Birth_date" Type="smalldatetime" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="Street" Type="varchar" MaxLength="50" />
+          <Property Name="Microdistrict" Type="varchar" MaxLength="30" />
+          <Property Name="Apartment_House" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="70" />
+          <Property Name="Phone_number" Type="varchar" MaxLength="20" />
+          <Property Name="Diplom_number" Type="varchar" MaxLength="20" />
+          <Property Name="Attestat_number" Type="varchar" MaxLength="20" />
+          <Property Name="Date_of_registr" Type="smalldatetime" />
+          <Property Name="LocalityName" Type="varchar" MaxLength="50" />
+          <Property Name="LocalityAddress" Type="varchar(max)" />
+          <Property Name="Category" Type="tinyint" />
+          <Property Name="Distrit" Type="smallint" />
+          <Property Name="School" Type="smallint" />
+          <Property Name="Language" Type="tinyint" />
+          <Property Name="Authoriziation" Type="int" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="id_language" />
+          </Key>
+          <Property Name="id_language" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Language_name" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Limit_of_time">
+          <Key>
+            <PropertyRef Name="ID_Time" />
+          </Key>
+          <Property Name="ID_Time" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_of_limit" Type="smalldatetime" Nullable="false" />
+          <Property Name="Limit_start" Type="smalldatetime" Nullable="false" />
+          <Property Name="Limit_end" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID_Position" />
+          </Key>
+          <Property Name="ID_Position" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Position_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reatinship(Graduent_and_Subject)">
+          <Key>
+            <PropertyRef Name="ID_Reationship" />
+          </Key>
+          <Property Name="ID_Reationship" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Graduent" Type="int" />
+          <Property Name="ID_Subject" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ID_Raceipt" />
+          </Key>
+          <Property Name="ID_Raceipt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Receipt_num" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Receipt_sum" Type="money" Nullable="false" />
+          <Property Name="Payment_Date" Type="smalldatetime" Nullable="false" />
+          <Property Name="Bank_branch_num" Type="varchar" MaxLength="30" />
+          <Property Name="School" Type="smallint" />
+          <Property Name="Head_of_teacher" Type="int" />
+          <Property Name="Graduent" Type="int" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID_Region" />
+          </Key>
+          <Property Name="ID_Region" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Region_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="ID_School" />
+          </Key>
+          <Property Name="ID_School" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="School_name" Type="varchar" MaxLength="50" />
+          <Property Name="Postal_zip" Type="int" />
+          <Property Name="Code_of_school" Type="int" />
+          <Property Name="Password_school" Type="int" />
+          <Property Name="LocalitiName" Type="varchar" MaxLength="50" />
+          <Property Name="LocalityAddress" Type="varchar(max)" />
+          <Property Name="District" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="ID_Subject" />
+          </Key>
+          <Property Name="ID_Subject" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Subject_Price" Type="money" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Access_ticket_Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Access_ticket" Type="Self.Access_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="Access_ticket">
+              <PropertyRef Name="Graduent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_District(town)_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="District(town)" Type="Self.District(town)" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="ID_Region" />
+            </Principal>
+            <Dependent Role="District(town)">
+              <PropertyRef Name="Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Access_level">
+          <End Role="Access_level" Type="Self.Access_level" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Access_level">
+              <PropertyRef Name="ID_access_level" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Access_level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Autorization" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Authotization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_District(town)">
+          <End Role="District(town)" Type="Self.District(town)" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District(town)">
+              <PropertyRef Name="ID_District" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="District" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID_Position" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID_School" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="School" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fired_Employee_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Fired_Employee" Type="Self.Fired_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="Fired_Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Autorization" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Authoriziation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_Category_Graduent">
+          <End Role="Category_Graduent" Type="Self.Category_Graduent" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Graduent">
+              <PropertyRef Name="ID_Category" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_District(town)">
+          <End Role="District(town)" Type="Self.District(town)" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District(town)">
+              <PropertyRef Name="ID_District" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Distrit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="id_language" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Language" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID_School" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="School" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reatinship(Graduent_and_Subject)_Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reatinship(Graduent_and_Subject)" Type="Self.Reatinship(Graduent_and_Subject)" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="Reatinship(Graduent_and_Subject)">
+              <PropertyRef Name="ID_Graduent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reatinship(Graduent_and_Subject)_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Reatinship(Graduent_and_Subject)" Type="Self.Reatinship(Graduent_and_Subject)" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID_Subject" />
+            </Principal>
+            <Dependent Role="Reatinship(Graduent_and_Subject)">
+              <PropertyRef Name="ID_Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="Head_of_teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="Graduent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID_School" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="School" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_School_District(town)">
+          <End Role="District(town)" Type="Self.District(town)" Multiplicity="0..1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District(town)">
+              <PropertyRef Name="ID_District" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="District" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Add_Access_level" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="accesslevel" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Add_Access_ticet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photo_3x4" Type="varchar(max)" Mode="In" />
+          <Parameter Name="photosignature" Type="varchar(max)" Mode="In" />
+          <Parameter Name="photoofpassport" Type="varchar(max)" Mode="In" />
+          <Parameter Name="documentnumber" Type="varchar" Mode="In" />
+          <Parameter Name="notifiaction" Type="varchar(max)" Mode="In" />
+          <Parameter Name="documentselection" Type="bit" Mode="In" />
+          <Parameter Name="graduent" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Add_Category_Graduant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="category" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Add_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="districtname" Type="varchar(max)" Mode="In" />
+          <Parameter Name="passworddistrict" Type="int" Mode="In" />
+          <Parameter Name="region" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Add_Employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="surname" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="thirdname" Type="varchar" Mode="In" />
+          <Parameter Name="birthdate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="gender" Type="varchar" Mode="In" />
+          <Parameter Name="phonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="innpassport" Type="varchar" Mode="In" />
+          <Parameter Name="adress" Type="varchar(max)" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="login" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="dateofappointment" Type="smalldatetime" Mode="In" />
+          <Parameter Name="fired" Type="bit" Mode="In" />
+          <Parameter Name="position" Type="tinyint" Mode="In" />
+          <Parameter Name="accesslevel" Type="tinyint" Mode="In" />
+          <Parameter Name="district" Type="smallint" Mode="In" />
+          <Parameter Name="school" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Add_Graduant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="surname" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="thirdname" Type="varchar" Mode="In" />
+          <Parameter Name="birthdate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="gender" Type="varchar" Mode="In" />
+          <Parameter Name="streed" Type="varchar" Mode="In" />
+          <Parameter Name="microdistrct" Type="varchar" Mode="In" />
+          <Parameter Name="apartmenthouse" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="login" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="phonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="diplomnumber" Type="varchar" Mode="In" />
+          <Parameter Name="attestatnumber" Type="varchar" Mode="In" />
+          <Parameter Name="dateofregistr" Type="smalldatetime" Mode="In" />
+          <Parameter Name="category" Type="tinyint" Mode="In" />
+          <Parameter Name="distrit" Type="smallint" Mode="In" />
+          <Parameter Name="school" Type="smallint" Mode="In" />
+          <Parameter Name="language" Type="tinyint" Mode="In" />
+          <Parameter Name="localiatyname" Type="varchar" Mode="In" />
+          <Parameter Name="localiatyaddress" Type="varchar(max)" Mode="In" />
+          <Parameter Name="photo3x4" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Photosignature" Type="varchar(max)" Mode="In" />
+          <Parameter Name="photoofpassport" Type="varchar(max)" Mode="In" />
+          <Parameter Name="documentnumber" Type="varchar" Mode="In" />
+          <Parameter Name="notification" Type="varchar(max)" Mode="In" />
+          <Parameter Name="documentselection" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Add_HeadOfTeacher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="surname" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="thirdname" Type="varchar" Mode="In" />
+          <Parameter Name="birthdate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="gender" Type="varchar" Mode="In" />
+          <Parameter Name="phonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="innpassport" Type="varchar" Mode="In" />
+          <Parameter Name="adress" Type="varchar(max)" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="login" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="dateofappointment" Type="smalldatetime" Mode="In" />
+          <Parameter Name="position" Type="tinyint" Mode="In" />
+          <Parameter Name="accesslevel" Type="tinyint" Mode="In" />
+          <Parameter Name="school" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Add_Language" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Language_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Add_limit_of_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dateoflimit" Type="smalldatetime" Mode="In" />
+          <Parameter Name="limitstart" Type="smalldatetime" Mode="In" />
+          <Parameter Name="limitend" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Add_Raceipt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="receipt_num" Type="varchar" Mode="In" />
+          <Parameter Name="reseipt_sum" Type="money" Mode="In" />
+          <Parameter Name="paymentdate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="bankbranchnum" Type="varchar" Mode="In" />
+          <Parameter Name="school" Type="smallint" Mode="In" />
+          <Parameter Name="headofteacher" Type="int" Mode="In" />
+          <Parameter Name="graduent" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Add_Region" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="regionname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Add_School" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="schoolname" Type="varchar" Mode="In" />
+          <Parameter Name="postalzip" Type="int" Mode="In" />
+          <Parameter Name="codeofschool" Type="int" Mode="In" />
+          <Parameter Name="passwordschool" Type="int" Mode="In" />
+          <Parameter Name="district" Type="smallint" Mode="In" />
+          <Parameter Name="localiatynamee" Type="varchar" Mode="In" />
+          <Parameter Name="localiatyaddresss" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Add_Subject_Price" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Subject_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Subject_Price" Type="money" Mode="In" />
+        </Function>
+        <Function Name="Del_Access_level" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delaccesslevel" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Del_Category_Graduant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delcategory" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Del_Distrit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="deldistrittown" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Del_Employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delEmplyee" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Del_Graduant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delgraduantlocality" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Del_Language" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idlanguage" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Del_Limit_of_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dellimioftime" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Del_Postion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delpostion" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Del_Region" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delregion" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Del_School_locialty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Schoollocialty" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Del_Subject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="delsubject" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetHeadOfTeacher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Up_Access_level" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAccess_level" Type="int" Mode="In" />
+          <Parameter Name="Access_level" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Category_Graduant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpCategoryGraduant" Type="varchar" Mode="In" />
+          <Parameter Name="UpidCategory" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrict" Type="smallint" Mode="In" />
+          <Parameter Name="UpDistrictname" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UpPassworddistrict" Type="int" Mode="In" />
+          <Parameter Name="UpRegion" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_District_Name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrict1" Type="smallint" Mode="In" />
+          <Parameter Name="UpDistrictname1" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Up_District_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrict2" Type="smallint" Mode="In" />
+          <Parameter Name="UpPassworddistrict2" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Up_District_Region" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrict3" Type="smallint" Mode="In" />
+          <Parameter Name="UpRegion3" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Access_level" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee14" Type="int" Mode="In" />
+          <Parameter Name="UpAccesslevelRmpl" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Address" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee8" Type="int" Mode="In" />
+          <Parameter Name="UpAddessRmpl" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Authorization_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee" Type="int" Mode="In" />
+          <Parameter Name="Up_Employee_Autorization_login" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Authorization_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee" Type="int" Mode="In" />
+          <Parameter Name="Up_Employee_Autorization_Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Birth_date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee4" Type="int" Mode="In" />
+          <Parameter Name="UpBirth_dateRmpl" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Date_of_appoinment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee12" Type="int" Mode="In" />
+          <Parameter Name="UpDateOfAppoinmentRmpl" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee15" Type="int" Mode="In" />
+          <Parameter Name="UpDistrictRmpl" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee9" Type="int" Mode="In" />
+          <Parameter Name="UpEmailRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Fired" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpIdEmployees" Type="int" Mode="In" />
+          <Parameter Name="UpFiredEmployee" Type="bit" Mode="In" />
+          <Parameter Name="InsDateLeavinFired" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_First_name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee2" Type="int" Mode="In" />
+          <Parameter Name="UpFirst_nameRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Gender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee5" Type="int" Mode="In" />
+          <Parameter Name="UpGenderRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_INN_passport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee7" Type="int" Mode="In" />
+          <Parameter Name="UpINNpassportRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee10" Type="int" Mode="In" />
+          <Parameter Name="UpEmailRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee11" Type="int" Mode="In" />
+          <Parameter Name="UpPasswordRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Phone_number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee6" Type="int" Mode="In" />
+          <Parameter Name="UpPhonenumberRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Position" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee13" Type="int" Mode="In" />
+          <Parameter Name="UpPositionRmpl" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_School" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee16" Type="int" Mode="In" />
+          <Parameter Name="UpSchoolRmpl" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Surname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee1" Type="int" Mode="In" />
+          <Parameter Name="UpSurnameRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employee_Third_name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployee3" Type="int" Mode="In" />
+          <Parameter Name="UpThird_nameRmpl" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpidEmplyess" Type="int" Mode="In" />
+          <Parameter Name="UpSurname" Type="varchar" Mode="In" />
+          <Parameter Name="UpFirstname" Type="varchar" Mode="In" />
+          <Parameter Name="UpThirdname" Type="varchar" Mode="In" />
+          <Parameter Name="Upbirthdate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="Upgender" Type="varchar" Mode="In" />
+          <Parameter Name="UpPhonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="Upinnpassport" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Upaddress" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Upemail" Type="varchar" Mode="In" />
+          <Parameter Name="UpDateOfAppointment" Type="smalldatetime" Mode="In" />
+          <Parameter Name="UpFired" Type="bit" Mode="In" />
+          <Parameter Name="UpPosition" Type="tinyint" Mode="In" />
+          <Parameter Name="UpAccesslevel" Type="tinyint" Mode="In" />
+          <Parameter Name="UpDistrict" Type="smallint" Mode="In" />
+          <Parameter Name="UpSchool" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Up_Employees_Date_leaving_Fired" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpDate_leaving_Fired" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Employees_Receipt_Bank_b_num" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployeees" Type="int" Mode="In" />
+          <Parameter Name="UpEmployee_Bank_branch_num" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employees_Receipt_Date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployeees" Type="int" Mode="In" />
+          <Parameter Name="UpEmployee_Payment_Date" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Employees_Receipt_num" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployeees" Type="int" Mode="In" />
+          <Parameter Name="UpEmployee_Receipt_num" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Employees_Receipt_sum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmployeees" Type="int" Mode="In" />
+          <Parameter Name="UpEmployee_Receipt_sum" Type="money" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpSurname" Type="varchar" Mode="In" />
+          <Parameter Name="UpFirstname" Type="varchar" Mode="In" />
+          <Parameter Name="UpThirdname" Type="varchar" Mode="In" />
+          <Parameter Name="UpBirthdate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="UpGender" Type="varchar" Mode="In" />
+          <Parameter Name="UpStreet" Type="varchar" Mode="In" />
+          <Parameter Name="UpMicroDisrict" Type="varchar" Mode="In" />
+          <Parameter Name="UpApartmentHouse" Type="varchar" Mode="In" />
+          <Parameter Name="UpEmail" Type="varchar" Mode="In" />
+          <Parameter Name="UpPhoneNumber" Type="varchar" Mode="In" />
+          <Parameter Name="UpDiplomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="UpAttestatNumber" Type="varchar" Mode="In" />
+          <Parameter Name="UpDateOfRegistr" Type="smalldatetime" Mode="In" />
+          <Parameter Name="UpCategoryGraduant" Type="tinyint" Mode="In" />
+          <Parameter Name="UpDistrict" Type="smallint" Mode="In" />
+          <Parameter Name="UpSchool" Type="smallint" Mode="In" />
+          <Parameter Name="UpPhoto_3x4" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UpPhoto_signature" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UpPhoto_Of_passport" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UpDocument_Number" Type="varchar" Mode="In" />
+          <Parameter Name="UpNotification" Type="varchar(max)" Mode="In" />
+          <Parameter Name="UpDocument_selection" Type="bit" Mode="In" />
+          <Parameter Name="NameLocality" Type="varchar" Mode="In" />
+          <Parameter Name="Address_locality" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UP_Graduant_Access_Notification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpNotification" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UP_Graduant_Access_ticket_3x4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpPhoto3x4" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UP_Graduant_Access_ticket_Doc_number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpDocument_number" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UP_Graduant_Access_ticket_Doc_selection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpDoc_selection" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UP_Graduant_Access_ticket_Ppassport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpPhotoPpassport" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UP_Graduant_Access_ticket_Psignature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="UpPhotoPsignature" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Apartment_House" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Apartment_house" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Attesstat_number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Attesstat" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Authorization_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Autorization_login" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Authorization_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Autorization_Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Birth_date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Birth_date" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Category" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Diplom_number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Diplom_number" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Firstname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Firstname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Gender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Gender" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Language" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="language" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_login" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_MicroDistrict" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_MicroDistrict" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Phone_number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Phone_number" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Receipt_Bank_Branch_num" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Graduant4" Type="int" Mode="In" />
+          <Parameter Name="UpReceipt_Bank_branch" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Receipt_Num" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Graduant1" Type="int" Mode="In" />
+          <Parameter Name="UpReceipnum1" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Receipt_Payment_Date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Graduant3" Type="int" Mode="In" />
+          <Parameter Name="UpReceipt_Payment_Date" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Receipt_Sum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Graduant2" Type="int" Mode="In" />
+          <Parameter Name="UpReceipsum2" Type="money" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_School" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_School" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Street" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Street" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Subject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="idGraduant_Subject" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Surname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Surname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Graduant_Thirname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGraduant" Type="int" Mode="In" />
+          <Parameter Name="Up_Graduant_Thirdname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Language" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idlanguage" Type="tinyint" Mode="In" />
+          <Parameter Name="UpLanguage_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_Limit_of_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpidTime" Type="smallint" Mode="In" />
+          <Parameter Name="UpDateoflimit" Type="smalldatetime" Mode="In" />
+          <Parameter Name="UpLimiStart" Type="smalldatetime" Mode="In" />
+          <Parameter Name="UpLimitEnd" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="UP_Limit_of_time_Date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTime1" Type="smallint" Mode="In" />
+          <Parameter Name="UpDate_of_Limit1" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="UP_Limit_of_time_End" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTime3" Type="smallint" Mode="In" />
+          <Parameter Name="UpLimit_End3" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="UP_Limit_of_time_Start" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTime2" Type="smallint" Mode="In" />
+          <Parameter Name="UpLimit_Start2" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Up_Postion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpPositionname" Type="varchar" Mode="In" />
+          <Parameter Name="UpidPosition" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_Region" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UpRegionname" Type="varchar" Mode="In" />
+          <Parameter Name="UpidRegion" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="Up_School" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdSchool" Type="smallint" Mode="In" />
+          <Parameter Name="UpSchoolname" Type="varchar" Mode="In" />
+          <Parameter Name="UpPostalzip" Type="int" Mode="In" />
+          <Parameter Name="UpCodeOfSchool" Type="int" Mode="In" />
+          <Parameter Name="UpPasswordSchool" Type="int" Mode="In" />
+          <Parameter Name="UpDistritSchool" Type="smallint" Mode="In" />
+          <Parameter Name="UpNameLocality" Type="varchar" Mode="In" />
+          <Parameter Name="UpAddressLocality" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Up_School_Code" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool3" Type="smallint" Mode="In" />
+          <Parameter Name="UpCode_of_School" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Up_School_District" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool5" Type="smallint" Mode="In" />
+          <Parameter Name="UpDistrict_school" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Up_School_Locality_Address" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool6" Type="smallint" Mode="In" />
+          <Parameter Name="UpLocalty_Address_School" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Up_School_Locality_Name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool6" Type="smallint" Mode="In" />
+          <Parameter Name="UpLocalty_Name_School" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_School_Name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool1" Type="smallint" Mode="In" />
+          <Parameter Name="UpSchool_name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Up_School_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool4" Type="smallint" Mode="In" />
+          <Parameter Name="UpPassword_school" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Up_School_Postal_zip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSchool2" Type="smallint" Mode="In" />
+          <Parameter Name="UpPostal_zip" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpCost_of_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCostoftest" Type="tinyint" Mode="In" />
+          <Parameter Name="UpCost_of_test" Type="money" Mode="In" />
+          <Parameter Name="UpCost_Subject" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="UpSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSubject" Type="tinyint" Mode="In" />
+          <Parameter Name="UpSubject_name" Type="varchar" Mode="In" />
+          <Parameter Name="UpSubject_Price" Type="money" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище ORTModelContainer">
+          <EntitySet Name="Access_level" EntityType="Self.Access_level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Access_ticket" EntityType="Self.Access_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category_Graduent" EntityType="Self.Category_Graduent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District(town)" EntityType="Self.District(town)" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fired_Employee" EntityType="Self.Fired_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Graduant" EntityType="Self.Graduant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Limit_of_time" EntityType="Self.Limit_of_time" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reatinship(Graduent_and_Subject)" EntityType="Self.Reatinship(Graduent_and_Subject)" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Access_ticket_Graduant" Association="Self.FK_Access_ticket_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="Access_ticket" EntitySet="Access_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_District(town)_Region" Association="Self.FK_District(town)_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="District(town)" EntitySet="District(town)" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Access_level" Association="Self.FK_Employees_Access_level">
+            <End Role="Access_level" EntitySet="Access_level" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Authorization" Association="Self.FK_Employees_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_District(town)" Association="Self.FK_Employees_District(town)">
+            <End Role="District(town)" EntitySet="District(town)" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Position" Association="Self.FK_Employees_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_School" Association="Self.FK_Employees_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fired_Employee_Employees" Association="Self.FK_Fired_Employee_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Fired_Employee" EntitySet="Fired_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_Authorization" Association="Self.FK_Graduant_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_Category_Graduent" Association="Self.FK_Graduant_Category_Graduent">
+            <End Role="Category_Graduent" EntitySet="Category_Graduent" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_District(town)" Association="Self.FK_Graduant_District(town)">
+            <End Role="District(town)" EntitySet="District(town)" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_Language" Association="Self.FK_Graduant_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_School" Association="Self.FK_Graduant_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reatinship(Graduent_and_Subject)_Graduant" Association="Self.FK_Reatinship(Graduent_and_Subject)_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="Reatinship(Graduent_and_Subject)" EntitySet="Reatinship(Graduent_and_Subject)" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reatinship(Graduent_and_Subject)_Subject" Association="Self.FK_Reatinship(Graduent_and_Subject)_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Reatinship(Graduent_and_Subject)" EntitySet="Reatinship(Graduent_and_Subject)" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Employees" Association="Self.FK_Receipt_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Graduant" Association="Self.FK_Receipt_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_School" Association="Self.FK_Receipt_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_School_District(town)" Association="Self.FK_School_District(town)">
+            <End Role="District(town)" EntitySet="District(town)" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Access_level">
+          <Key>
+            <PropertyRef Name="ID_access_level" />
+          </Key>
+          <Property Name="ID_access_level" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Access_level1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Access_level" FromRole="Access_level" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Access_ticket">
+          <Key>
+            <PropertyRef Name="ID_ticet" />
+          </Key>
+          <Property Name="ID_ticet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Photo_3x4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Photo_signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Photo_of_passport" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Document_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Notification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Document_selection" Type="Boolean" />
+          <Property Name="Graduent" Type="Int32" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Access_ticket_Graduant" FromRole="Access_ticket" ToRole="Graduant" />
+        </EntityType>
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="id_Autorization" />
+          </Key>
+          <Property Name="id_Autorization" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Authorization" FromRole="Authorization" ToRole="Employees" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Graduant_Authorization" FromRole="Authorization" ToRole="Graduant" />
+        </EntityType>
+        <EntityType Name="Category_Graduent">
+          <Key>
+            <PropertyRef Name="ID_Category" />
+          </Key>
+          <Property Name="ID_Category" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Graduent1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Graduant_Category_Graduent" FromRole="Category_Graduent" ToRole="Graduant" />
+        </EntityType>
+        <EntityType Name="District_town_">
+          <Key>
+            <PropertyRef Name="ID_District" />
+          </Key>
+          <Property Name="ID_District" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="District_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password_district" Type="Int32" Nullable="false" />
+          <Property Name="Region" Type="Byte" />
+          <NavigationProperty Name="Region1" Relationship="Self.FK_District_town__Region" FromRole="District_town_" ToRole="Region" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_District_town_" FromRole="District_town_" ToRole="Employees" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Graduant_District_town_" FromRole="District_town_" ToRole="Graduant" />
+          <NavigationProperty Name="School" Relationship="Self.FK_School_District_town_" FromRole="District_town_" ToRole="School" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID_Employee" />
+          </Key>
+          <Property Name="ID_Employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="First_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Third_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Birth_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INN_passport" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_appointment" Type="DateTime" Precision="0" />
+          <Property Name="Fired" Type="Boolean" />
+          <Property Name="Position" Type="Byte" />
+          <Property Name="Access_level" Type="Byte" />
+          <Property Name="District" Type="Int16" />
+          <Property Name="School" Type="Int16" />
+          <Property Name="Authotization" Type="Int32" />
+          <NavigationProperty Name="Access_level1" Relationship="Self.FK_Employees_Access_level" FromRole="Employees" ToRole="Access_level" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_Employees_Authorization" FromRole="Employees" ToRole="Authorization" />
+          <NavigationProperty Name="District_town_" Relationship="Self.FK_Employees_District_town_" FromRole="Employees" ToRole="District_town_" />
+          <NavigationProperty Name="Position1" Relationship="Self.FK_Employees_Position" FromRole="Employees" ToRole="Position" />
+          <NavigationProperty Name="School1" Relationship="Self.FK_Employees_School" FromRole="Employees" ToRole="School" />
+          <NavigationProperty Name="Fired_Employee" Relationship="Self.FK_Fired_Employee_Employees" FromRole="Employees" ToRole="Fired_Employee" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_Employees" FromRole="Employees" ToRole="Receipt" />
+        </EntityType>
+        <EntityType Name="Fired_Employee">
+          <Key>
+            <PropertyRef Name="id_fired" />
+          </Key>
+          <Property Name="id_fired" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_leavingFierd" Type="DateTime" Precision="0" />
+          <Property Name="Date_appointmentFired" Type="DateTime" Precision="0" />
+          <Property Name="ID_Employee" Type="Int32" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Fired_Employee_Employees" FromRole="Fired_Employee" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Graduant">
+          <Key>
+            <PropertyRef Name="ID_Graduant" />
+          </Key>
+          <Property Name="ID_Graduant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sur_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="First_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Third_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Birth_date" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Microdistrict" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apartment_House" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Diplom_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Attestat_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_registr" Type="DateTime" Precision="0" />
+          <Property Name="Category" Type="Byte" />
+          <Property Name="Distrit" Type="Int16" />
+          <Property Name="School" Type="Int16" />
+          <Property Name="Language" Type="Byte" />
+          <Property Name="Authoriziation" Type="Int32" />
+          <NavigationProperty Name="Access_ticket" Relationship="Self.FK_Access_ticket_Graduant" FromRole="Graduant" ToRole="Access_ticket" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_Graduant_Authorization" FromRole="Graduant" ToRole="Authorization" />
+          <NavigationProperty Name="Category_Graduent" Relationship="Self.FK_Graduant_Category_Graduent" FromRole="Graduant" ToRole="Category_Graduent" />
+          <NavigationProperty Name="District_town_" Relationship="Self.FK_Graduant_District_town_" FromRole="Graduant" ToRole="District_town_" />
+          <NavigationProperty Name="Language1" Relationship="Self.FK_Graduant_Language" FromRole="Graduant" ToRole="Language" />
+          <NavigationProperty Name="School1" Relationship="Self.FK_Graduant_School" FromRole="Graduant" ToRole="School" />
+          <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Graduant" ToRole="Reatinship_Graduent_and_Subject_" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_Graduant" FromRole="Graduant" ToRole="Receipt" />
+          <Property Name="LocalityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocalityAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="id_language" />
+          </Key>
+          <Property Name="id_language" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Language_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Graduant_Language" FromRole="Language" ToRole="Graduant" />
+        </EntityType>
+        <EntityType Name="Limit_of_time">
+          <Key>
+            <PropertyRef Name="ID_Time" />
+          </Key>
+          <Property Name="ID_Time" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_of_limit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Limit_start" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Limit_end" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID_Position" />
+          </Key>
+          <Property Name="ID_Position" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Position_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Position" FromRole="Position" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Reatinship_Graduent_and_Subject_">
+          <Key>
+            <PropertyRef Name="ID_Reationship" />
+          </Key>
+          <Property Name="ID_Reationship" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Graduent" Type="Int32" />
+          <Property Name="ID_Subject" Type="Byte" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Graduant" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Graduant" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Subject" FromRole="Reatinship_Graduent_and_Subject_" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ID_Raceipt" />
+          </Key>
+          <Property Name="ID_Raceipt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Receipt_num" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Receipt_sum" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Bank_branch_num" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="School" Type="Int16" />
+          <Property Name="Head_of_teacher" Type="Int32" />
+          <Property Name="Graduent" Type="Int32" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Receipt_Employees" FromRole="Receipt" ToRole="Employees" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Receipt_Graduant" FromRole="Receipt" ToRole="Graduant" />
+          <NavigationProperty Name="School1" Relationship="Self.FK_Receipt_School" FromRole="Receipt" ToRole="School" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID_Region" />
+          </Key>
+          <Property Name="ID_Region" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Region_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="District_town_" Relationship="Self.FK_District_town__Region" FromRole="Region" ToRole="District_town_" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="ID_School" />
+          </Key>
+          <Property Name="ID_School" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="School_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_zip" Type="Int32" />
+          <Property Name="Code_of_school" Type="Int32" />
+          <Property Name="Password_school" Type="Int32" />
+          <Property Name="District" Type="Int16" />
+          <NavigationProperty Name="District_town_" Relationship="Self.FK_School_District_town_" FromRole="School" ToRole="District_town_" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_School" FromRole="School" ToRole="Employees" />
+          <NavigationProperty Name="Graduant" Relationship="Self.FK_Graduant_School" FromRole="School" ToRole="Graduant" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_School" FromRole="School" ToRole="Receipt" />
+          <Property Name="LocalitiName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocalityAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="ID_Subject" />
+          </Key>
+          <Property Name="ID_Subject" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject_Price" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Reatinship_Graduent_and_Subject_" Relationship="Self.FK_Reatinship_Graduent_and_Subject__Subject" FromRole="Subject" ToRole="Reatinship_Graduent_and_Subject_" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Employees_Access_level">
+          <End Role="Access_level" Type="Self.Access_level" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Access_level">
+              <PropertyRef Name="ID_access_level" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Access_level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Access_ticket_Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Access_ticket" Type="Self.Access_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="Access_ticket">
+              <PropertyRef Name="Graduent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Autorization" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Authotization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="id_Autorization" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Authoriziation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_Category_Graduent">
+          <End Role="Category_Graduent" Type="Self.Category_Graduent" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Graduent">
+              <PropertyRef Name="ID_Category" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_District_town__Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="District_town_" Type="Self.District_town_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="ID_Region" />
+            </Principal>
+            <Dependent Role="District_town_">
+              <PropertyRef Name="Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_District_town_">
+          <End Role="District_town_" Type="Self.District_town_" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District_town_">
+              <PropertyRef Name="ID_District" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="District" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_District_town_">
+          <End Role="District_town_" Type="Self.District_town_" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District_town_">
+              <PropertyRef Name="ID_District" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Distrit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_School_District_town_">
+          <End Role="District_town_" Type="Self.District_town_" Multiplicity="0..1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District_town_">
+              <PropertyRef Name="ID_District" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="District" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID_Position" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID_School" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="School" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fired_Employee_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Fired_Employee" Type="Self.Fired_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="Fired_Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="Head_of_teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="id_language" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="Language" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Graduant_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID_School" />
+            </Principal>
+            <Dependent Role="Graduant">
+              <PropertyRef Name="School" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reatinship_Graduent_and_Subject__Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reatinship_Graduent_and_Subject_" Type="Self.Reatinship_Graduent_and_Subject_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="Reatinship_Graduent_and_Subject_">
+              <PropertyRef Name="ID_Graduent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Graduant">
+          <End Role="Graduant" Type="Self.Graduant" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graduant">
+              <PropertyRef Name="ID_Graduant" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="Graduent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reatinship_Graduent_and_Subject__Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Reatinship_Graduent_and_Subject_" Type="Self.Reatinship_Graduent_and_Subject_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID_Subject" />
+            </Principal>
+            <Dependent Role="Reatinship_Graduent_and_Subject_">
+              <PropertyRef Name="ID_Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID_School" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="School" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ORTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Access_level" EntityType="Self.Access_level" />
+          <EntitySet Name="Access_ticket" EntityType="Self.Access_ticket" />
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" />
+          <EntitySet Name="Category_Graduent" EntityType="Self.Category_Graduent" />
+          <EntitySet Name="District_town_" EntityType="Self.District_town_" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Fired_Employee" EntityType="Self.Fired_Employee" />
+          <EntitySet Name="Graduant" EntityType="Self.Graduant" />
+          <EntitySet Name="Language" EntityType="Self.Language" />
+          <EntitySet Name="Limit_of_time" EntityType="Self.Limit_of_time" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="Reatinship_Graduent_and_Subject_" EntityType="Self.Reatinship_Graduent_and_Subject_" />
+          <EntitySet Name="Receipt" EntityType="Self.Receipt" />
+          <EntitySet Name="Region" EntityType="Self.Region" />
+          <EntitySet Name="School" EntityType="Self.School" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Employees_Access_level" Association="Self.FK_Employees_Access_level">
+            <End Role="Access_level" EntitySet="Access_level" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Access_ticket_Graduant" Association="Self.FK_Access_ticket_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="Access_ticket" EntitySet="Access_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Authorization" Association="Self.FK_Employees_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_Authorization" Association="Self.FK_Graduant_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_Category_Graduent" Association="Self.FK_Graduant_Category_Graduent">
+            <End Role="Category_Graduent" EntitySet="Category_Graduent" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_District_town__Region" Association="Self.FK_District_town__Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="District_town_" EntitySet="District_town_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_District_town_" Association="Self.FK_Employees_District_town_">
+            <End Role="District_town_" EntitySet="District_town_" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_District_town_" Association="Self.FK_Graduant_District_town_">
+            <End Role="District_town_" EntitySet="District_town_" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_School_District_town_" Association="Self.FK_School_District_town_">
+            <End Role="District_town_" EntitySet="District_town_" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Position" Association="Self.FK_Employees_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_School" Association="Self.FK_Employees_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fired_Employee_Employees" Association="Self.FK_Fired_Employee_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Fired_Employee" EntitySet="Fired_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Employees" Association="Self.FK_Receipt_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_Language" Association="Self.FK_Graduant_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Graduant_School" Association="Self.FK_Graduant_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Graduant" EntitySet="Graduant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Graduant" Association="Self.FK_Reatinship_Graduent_and_Subject__Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="Reatinship_Graduent_and_Subject_" EntitySet="Reatinship_Graduent_and_Subject_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Graduant" Association="Self.FK_Receipt_Graduant">
+            <End Role="Graduant" EntitySet="Graduant" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reatinship_Graduent_and_Subject__Subject" Association="Self.FK_Reatinship_Graduent_and_Subject__Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Reatinship_Graduent_and_Subject_" EntitySet="Reatinship_Graduent_and_Subject_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_School" Association="Self.FK_Receipt_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <FunctionImport Name="Add_Access_level" ReturnType="Collection(Decimal)">
+          <Parameter Name="accesslevel" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Access_ticet" ReturnType="Collection(Decimal)">
+            <Parameter Name="photo_3x4" Mode="In" Type="String" />
+            <Parameter Name="photosignature" Mode="In" Type="String" />
+            <Parameter Name="photoofpassport" Mode="In" Type="String" />
+            <Parameter Name="documentnumber" Mode="In" Type="String" />
+            <Parameter Name="notifiaction" Mode="In" Type="String" />
+            <Parameter Name="documentselection" Mode="In" Type="Boolean" />
+            <Parameter Name="graduent" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Category_Graduant" ReturnType="Collection(Decimal)">
+          <Parameter Name="category" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Add_District" ReturnType="Collection(Decimal)">
+            <Parameter Name="districtname" Mode="In" Type="String" />
+            <Parameter Name="passworddistrict" Mode="In" Type="Int32" />
+            <Parameter Name="region" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Employee" ReturnType="Collection(Decimal)">
+            <Parameter Name="surname" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="thirdname" Mode="In" Type="String" />
+            <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="phonenumber" Mode="In" Type="String" />
+            <Parameter Name="innpassport" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="login" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="dateofappointment" Mode="In" Type="DateTime" />
+            <Parameter Name="fired" Mode="In" Type="Boolean" />
+            <Parameter Name="position" Mode="In" Type="Byte" />
+            <Parameter Name="accesslevel" Mode="In" Type="Byte" />
+            <Parameter Name="district" Mode="In" Type="Int16" />
+            <Parameter Name="school" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Graduant" ReturnType="Collection(Decimal)">
+            <Parameter Name="surname" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="thirdname" Mode="In" Type="String" />
+            <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="streed" Mode="In" Type="String" />
+            <Parameter Name="microdistrct" Mode="In" Type="String" />
+            <Parameter Name="apartmenthouse" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="login" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="phonenumber" Mode="In" Type="String" />
+            <Parameter Name="diplomnumber" Mode="In" Type="String" />
+            <Parameter Name="attestatnumber" Mode="In" Type="String" />
+            <Parameter Name="dateofregistr" Mode="In" Type="DateTime" />
+            <Parameter Name="category" Mode="In" Type="Byte" />
+            <Parameter Name="distrit" Mode="In" Type="Int16" />
+            <Parameter Name="school" Mode="In" Type="Int16" />
+            <Parameter Name="language" Mode="In" Type="Byte" />
+            <Parameter Name="localiatyname" Mode="In" Type="String" />
+            <Parameter Name="localiatyaddress" Mode="In" Type="String" />
+            <Parameter Name="photo3x4" Mode="In" Type="String" />
+            <Parameter Name="Photosignature" Mode="In" Type="String" />
+            <Parameter Name="photoofpassport" Mode="In" Type="String" />
+            <Parameter Name="documentnumber" Mode="In" Type="String" />
+            <Parameter Name="notification" Mode="In" Type="String" />
+            <Parameter Name="documentselection" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Language">
+          <Parameter Name="Language_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Add_limit_of_time" ReturnType="Collection(Decimal)">
+            <Parameter Name="dateoflimit" Mode="In" Type="DateTime" />
+            <Parameter Name="limitstart" Mode="In" Type="DateTime" />
+            <Parameter Name="limitend" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Raceipt" ReturnType="Collection(Decimal)">
+            <Parameter Name="receipt_num" Mode="In" Type="String" />
+            <Parameter Name="reseipt_sum" Mode="In" Type="Decimal" />
+            <Parameter Name="paymentdate" Mode="In" Type="DateTime" />
+            <Parameter Name="bankbranchnum" Mode="In" Type="String" />
+            <Parameter Name="school" Mode="In" Type="Int16" />
+            <Parameter Name="headofteacher" Mode="In" Type="Int32" />
+            <Parameter Name="graduent" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Region" ReturnType="Collection(Decimal)">
+          <Parameter Name="regionname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Add_School" ReturnType="Collection(Decimal)">
+            <Parameter Name="schoolname" Mode="In" Type="String" />
+            <Parameter Name="postalzip" Mode="In" Type="Int32" />
+            <Parameter Name="codeofschool" Mode="In" Type="Int32" />
+            <Parameter Name="passwordschool" Mode="In" Type="Int32" />
+            <Parameter Name="district" Mode="In" Type="Int16" />
+            <Parameter Name="localiatynamee" Mode="In" Type="String" />
+            <Parameter Name="localiatyaddresss" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Add_Subject_Price" ReturnType="Collection(Decimal)">
+            <Parameter Name="Subject_Name" Mode="In" Type="String" />
+            <Parameter Name="Subject_Price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Access_level">
+          <Parameter Name="delaccesslevel" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Category_Graduant">
+          <Parameter Name="delcategory" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Distrit">
+          <Parameter Name="deldistrittown" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Employee">
+          <Parameter Name="delEmplyee" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Graduant">
+          <Parameter Name="delgraduantlocality" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Language">
+          <Parameter Name="idlanguage" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Limit_of_time">
+          <Parameter Name="dellimioftime" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Postion">
+          <Parameter Name="delpostion" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Region">
+          <Parameter Name="delregion" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Del_School_locialty">
+          <Parameter Name="Schoollocialty" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Del_Subject">
+          <Parameter Name="delsubject" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ORTModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ORTModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="Up_Access_level">
+            <Parameter Name="idAccess_level" Mode="In" Type="Int32" />
+            <Parameter Name="Access_level" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Category_Graduant">
+            <Parameter Name="UpCategoryGraduant" Mode="In" Type="String" />
+            <Parameter Name="UpidCategory" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_District">
+            <Parameter Name="idDistrict" Mode="In" Type="Int16" />
+            <Parameter Name="UpDistrictname" Mode="In" Type="String" />
+            <Parameter Name="UpPassworddistrict" Mode="In" Type="Int32" />
+            <Parameter Name="UpRegion" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_District_Name">
+            <Parameter Name="idDistrict1" Mode="In" Type="Int16" />
+            <Parameter Name="UpDistrictname1" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_District_Password">
+            <Parameter Name="idDistrict2" Mode="In" Type="Int16" />
+            <Parameter Name="UpPassworddistrict2" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Up_District_Region">
+            <Parameter Name="idDistrict3" Mode="In" Type="Int16" />
+            <Parameter Name="UpRegion3" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Access_level" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee14" Mode="In" Type="Int32" />
+            <Parameter Name="UpAccesslevelRmpl" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Address" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee8" Mode="In" Type="Int32" />
+            <Parameter Name="UpAddessRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Authorization_login">
+            <Parameter Name="idEmployee" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Employee_Autorization_login" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Authorization_Password">
+            <Parameter Name="idEmployee" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Employee_Autorization_Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Birth_date" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee4" Mode="In" Type="Int32" />
+            <Parameter Name="UpBirth_dateRmpl" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Date_of_appoinment" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee12" Mode="In" Type="Int32" />
+            <Parameter Name="UpDateOfAppoinmentRmpl" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_District" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee15" Mode="In" Type="Int32" />
+            <Parameter Name="UpDistrictRmpl" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Email" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee9" Mode="In" Type="Int32" />
+            <Parameter Name="UpEmailRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Fired" ReturnType="Collection(Decimal)">
+            <Parameter Name="UpIdEmployees" Mode="In" Type="Int32" />
+            <Parameter Name="UpFiredEmployee" Mode="In" Type="Boolean" />
+            <Parameter Name="InsDateLeavinFired" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_First_name" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee2" Mode="In" Type="Int32" />
+            <Parameter Name="UpFirst_nameRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Gender" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee5" Mode="In" Type="Int32" />
+            <Parameter Name="UpGenderRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_INN_passport" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee7" Mode="In" Type="Int32" />
+            <Parameter Name="UpINNpassportRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Login">
+            <Parameter Name="idEmployee10" Mode="In" Type="Int32" />
+            <Parameter Name="UpEmailRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Password">
+            <Parameter Name="idEmployee11" Mode="In" Type="Int32" />
+            <Parameter Name="UpPasswordRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Phone_number" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee6" Mode="In" Type="Int32" />
+            <Parameter Name="UpPhonenumberRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Position" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee13" Mode="In" Type="Int32" />
+            <Parameter Name="UpPositionRmpl" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_School" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee16" Mode="In" Type="Int32" />
+            <Parameter Name="UpSchoolRmpl" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Surname" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee1" Mode="In" Type="Int32" />
+            <Parameter Name="UpSurnameRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employee_Third_name" ReturnType="Collection(Decimal)">
+            <Parameter Name="idEmployee3" Mode="In" Type="Int32" />
+            <Parameter Name="UpThird_nameRmpl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employees">
+            <Parameter Name="UpidEmplyess" Mode="In" Type="Int32" />
+            <Parameter Name="UpSurname" Mode="In" Type="String" />
+            <Parameter Name="UpFirstname" Mode="In" Type="String" />
+            <Parameter Name="UpThirdname" Mode="In" Type="String" />
+            <Parameter Name="Upbirthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="Upgender" Mode="In" Type="String" />
+            <Parameter Name="UpPhonenumber" Mode="In" Type="String" />
+            <Parameter Name="Upinnpassport" Mode="In" Type="String" />
+            <Parameter Name="Upaddress" Mode="In" Type="String" />
+            <Parameter Name="Upemail" Mode="In" Type="String" />
+            <Parameter Name="UpDateOfAppointment" Mode="In" Type="DateTime" />
+            <Parameter Name="UpFired" Mode="In" Type="Boolean" />
+            <Parameter Name="UpPosition" Mode="In" Type="Byte" />
+            <Parameter Name="UpAccesslevel" Mode="In" Type="Byte" />
+            <Parameter Name="UpDistrict" Mode="In" Type="Int16" />
+            <Parameter Name="UpSchool" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employees_Date_leaving_Fired">
+          <Parameter Name="UpDate_leaving_Fired" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employees_Receipt_Bank_b_num">
+            <Parameter Name="idEmployeees" Mode="In" Type="Int32" />
+            <Parameter Name="UpEmployee_Bank_branch_num" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employees_Receipt_Date">
+            <Parameter Name="idEmployeees" Mode="In" Type="Int32" />
+            <Parameter Name="UpEmployee_Payment_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employees_Receipt_num">
+            <Parameter Name="idEmployeees" Mode="In" Type="Int32" />
+            <Parameter Name="UpEmployee_Receipt_num" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Employees_Receipt_sum">
+            <Parameter Name="idEmployeees" Mode="In" Type="Int32" />
+            <Parameter Name="UpEmployee_Receipt_sum" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant" ReturnType="Collection(Decimal)">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpSurname" Mode="In" Type="String" />
+            <Parameter Name="UpFirstname" Mode="In" Type="String" />
+            <Parameter Name="UpThirdname" Mode="In" Type="String" />
+            <Parameter Name="UpBirthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpGender" Mode="In" Type="String" />
+            <Parameter Name="UpStreet" Mode="In" Type="String" />
+            <Parameter Name="UpMicroDisrict" Mode="In" Type="String" />
+            <Parameter Name="UpApartmentHouse" Mode="In" Type="String" />
+            <Parameter Name="UpEmail" Mode="In" Type="String" />
+            <Parameter Name="UpPhoneNumber" Mode="In" Type="String" />
+            <Parameter Name="UpDiplomNumber" Mode="In" Type="String" />
+            <Parameter Name="UpAttestatNumber" Mode="In" Type="String" />
+            <Parameter Name="UpDateOfRegistr" Mode="In" Type="DateTime" />
+            <Parameter Name="UpCategoryGraduant" Mode="In" Type="Byte" />
+            <Parameter Name="UpDistrict" Mode="In" Type="Int16" />
+            <Parameter Name="UpSchool" Mode="In" Type="Int16" />
+            <Parameter Name="UpPhoto_3x4" Mode="In" Type="String" />
+            <Parameter Name="UpPhoto_signature" Mode="In" Type="String" />
+            <Parameter Name="UpPhoto_Of_passport" Mode="In" Type="String" />
+            <Parameter Name="UpDocument_Number" Mode="In" Type="String" />
+            <Parameter Name="UpNotification" Mode="In" Type="String" />
+            <Parameter Name="UpDocument_selection" Mode="In" Type="Boolean" />
+            <Parameter Name="NameLocality" Mode="In" Type="String" />
+            <Parameter Name="Address_locality" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Graduant_Access_Notification">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpNotification" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Graduant_Access_ticket_3x4">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpPhoto3x4" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Graduant_Access_ticket_Doc_number">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpDocument_number" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Graduant_Access_ticket_Doc_selection">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpDoc_selection" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Graduant_Access_ticket_Ppassport">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpPhotoPpassport" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Graduant_Access_ticket_Psignature">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="UpPhotoPsignature" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Apartment_House">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Apartment_house" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Attesstat_number">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Attesstat" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Authorization_Login">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Autorization_login" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Authorization_Password">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Autorization_Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Birth_date">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Birth_date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Category">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Category" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Diplom_number">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Diplom_number" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Email">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Firstname">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Firstname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Gender">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Gender" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Language">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="language" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Locality_Address">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Locality_address" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Locality_Name">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Locality_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_login">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_login" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_MicroDistrict">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_MicroDistrict" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Password">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Phone_number">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Phone_number" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Receipt_Bank_Branch_num">
+            <Parameter Name="Id_Graduant4" Mode="In" Type="Int32" />
+            <Parameter Name="UpReceipt_Bank_branch" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Receipt_Num">
+            <Parameter Name="Id_Graduant1" Mode="In" Type="Int32" />
+            <Parameter Name="UpReceipnum1" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Receipt_Payment_Date">
+            <Parameter Name="Id_Graduant3" Mode="In" Type="Int32" />
+            <Parameter Name="UpReceipt_Payment_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Receipt_Sum">
+            <Parameter Name="Id_Graduant2" Mode="In" Type="Int32" />
+            <Parameter Name="UpReceipsum2" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_School">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_School" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Street">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Street" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Subject">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="idGraduant_Subject" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Surname">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Surname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Graduant_Thirname">
+            <Parameter Name="idGraduant" Mode="In" Type="Int32" />
+            <Parameter Name="Up_Graduant_Thirdname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Language">
+            <Parameter Name="idlanguage" Mode="In" Type="Byte" />
+            <Parameter Name="UpLanguage_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Limit_of_time">
+            <Parameter Name="UpidTime" Mode="In" Type="Int16" />
+            <Parameter Name="UpDateoflimit" Mode="In" Type="DateTime" />
+            <Parameter Name="UpLimiStart" Mode="In" Type="DateTime" />
+            <Parameter Name="UpLimitEnd" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Limit_of_time_Date">
+            <Parameter Name="idTime1" Mode="In" Type="Int16" />
+            <Parameter Name="UpDate_of_Limit1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Limit_of_time_End">
+            <Parameter Name="idTime3" Mode="In" Type="Int16" />
+            <Parameter Name="UpLimit_End3" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Limit_of_time_Start">
+            <Parameter Name="idTime2" Mode="In" Type="Int16" />
+            <Parameter Name="UpLimit_Start2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Postion">
+            <Parameter Name="UpPositionname" Mode="In" Type="String" />
+            <Parameter Name="UpidPosition" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_Region">
+            <Parameter Name="UpRegionname" Mode="In" Type="String" />
+            <Parameter Name="UpidRegion" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School">
+            <Parameter Name="IdSchool" Mode="In" Type="Int16" />
+            <Parameter Name="UpSchoolname" Mode="In" Type="String" />
+            <Parameter Name="UpPostalzip" Mode="In" Type="Int32" />
+            <Parameter Name="UpCodeOfSchool" Mode="In" Type="Int32" />
+            <Parameter Name="UpPasswordSchool" Mode="In" Type="Int32" />
+            <Parameter Name="UpDistritSchool" Mode="In" Type="Int16" />
+            <Parameter Name="UpNameLocality" Mode="In" Type="String" />
+            <Parameter Name="UpAddressLocality" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_Code">
+            <Parameter Name="idSchool3" Mode="In" Type="Int16" />
+            <Parameter Name="UpCode_of_School" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_District">
+            <Parameter Name="idSchool5" Mode="In" Type="Int16" />
+            <Parameter Name="UpDistrict_school" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_Locality_Address">
+            <Parameter Name="idSchool6" Mode="In" Type="Int16" />
+            <Parameter Name="UpLocalty_Address_School" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_Locality_Name">
+            <Parameter Name="idSchool6" Mode="In" Type="Int16" />
+            <Parameter Name="UpLocalty_Name_School" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_Name">
+            <Parameter Name="idSchool1" Mode="In" Type="Int16" />
+            <Parameter Name="UpSchool_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_Password">
+            <Parameter Name="idSchool4" Mode="In" Type="Int16" />
+            <Parameter Name="UpPassword_school" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Up_School_Postal_zip">
+            <Parameter Name="idSchool2" Mode="In" Type="Int16" />
+            <Parameter Name="UpPostal_zip" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpCost_of_Test">
+            <Parameter Name="idCostoftest" Mode="In" Type="Byte" />
+            <Parameter Name="UpCost_of_test" Mode="In" Type="Decimal" />
+            <Parameter Name="UpCost_Subject" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="UpSubject">
+            <Parameter Name="idSubject" Mode="In" Type="Byte" />
+            <Parameter Name="UpSubject_name" Mode="In" Type="String" />
+            <Parameter Name="UpSubject_Price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GetHeadOfTeacher" ReturnType="Collection(ORTModel.GetHeadOfTeacher_Result)" />
+          <FunctionImport Name="Add_HeadOfTeacher" ReturnType="Collection(Decimal)">
+            <Parameter Name="surname" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="thirdname" Mode="In" Type="String" />
+            <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="phonenumber" Mode="In" Type="String" />
+            <Parameter Name="innpassport" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="login" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="dateofappointment" Mode="In" Type="DateTime" />
+            <Parameter Name="position" Mode="In" Type="Byte" />
+            <Parameter Name="accesslevel" Mode="In" Type="Byte" />
+            <Parameter Name="school" Mode="In" Type="Int16" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetHeadOfTeacher_Result">
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="First_name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Third_Name" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Birth_date" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Gender" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Phone_number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="INN_passport" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="DateTime" Name="Date_of_appointment" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Position_Name" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Fired" Nullable="true" />
+          <Property Type="String" Name="Region_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="District_name" Nullable="false" />
+          <Property Type="String" Name="School_name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Code_of_school" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ORTModelContainer" CdmEntityContainer="ORTEntities">
+          <EntitySetMapping Name="Access_level">
+            <EntityTypeMapping TypeName="ORTModel.Access_level">
+              <MappingFragment StoreEntitySet="Access_level">
+                <ScalarProperty Name="ID_access_level" ColumnName="ID_access_level" />
+                <ScalarProperty Name="Access_level1" ColumnName="Access_level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Access_ticket">
+            <EntityTypeMapping TypeName="ORTModel.Access_ticket">
+              <MappingFragment StoreEntitySet="Access_ticket">
+                <ScalarProperty Name="ID_ticet" ColumnName="ID_ticet" />
+                <ScalarProperty Name="Photo_3x4" ColumnName="Photo_3x4" />
+                <ScalarProperty Name="Photo_signature" ColumnName="Photo_signature" />
+                <ScalarProperty Name="Photo_of_passport" ColumnName="Photo_of_passport" />
+                <ScalarProperty Name="Document_number" ColumnName="Document_number" />
+                <ScalarProperty Name="Notification" ColumnName="Notification" />
+                <ScalarProperty Name="Document_selection" ColumnName="Document_selection" />
+                <ScalarProperty Name="Graduent" ColumnName="Graduent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authorization">
+            <EntityTypeMapping TypeName="ORTModel.Authorization">
+              <MappingFragment StoreEntitySet="Authorization">
+                <ScalarProperty Name="id_Autorization" ColumnName="id_Autorization" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category_Graduent">
+            <EntityTypeMapping TypeName="ORTModel.Category_Graduent">
+              <MappingFragment StoreEntitySet="Category_Graduent">
+                <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
+                <ScalarProperty Name="Category_Graduent1" ColumnName="Category_Graduent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="District_town_">
+            <EntityTypeMapping TypeName="ORTModel.District_town_">
+              <MappingFragment StoreEntitySet="District(town)">
+                <ScalarProperty Name="ID_District" ColumnName="ID_District" />
+                <ScalarProperty Name="District_name" ColumnName="District_name" />
+                <ScalarProperty Name="Password_district" ColumnName="Password_district" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ORTModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Third_Name" ColumnName="Third_Name" />
+                <ScalarProperty Name="Birth_date" ColumnName="Birth_date" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="INN_passport" ColumnName="INN_passport" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Date_of_appointment" ColumnName="Date_of_appointment" />
+                <ScalarProperty Name="Fired" ColumnName="Fired" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Access_level" ColumnName="Access_level" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Authotization" ColumnName="Authotization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fired_Employee">
+            <EntityTypeMapping TypeName="ORTModel.Fired_Employee">
+              <MappingFragment StoreEntitySet="Fired_Employee">
+                <ScalarProperty Name="id_fired" ColumnName="id_fired" />
+                <ScalarProperty Name="Date_leavingFierd" ColumnName="Date_leavingFierd" />
+                <ScalarProperty Name="Date_appointmentFired" ColumnName="Date_appointmentFired" />
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Graduant">
+            <EntityTypeMapping TypeName="ORTModel.Graduant">
+              <MappingFragment StoreEntitySet="Graduant">
+                <ScalarProperty Name="LocalityAddress" ColumnName="LocalityAddress" />
+                <ScalarProperty Name="LocalityName" ColumnName="LocalityName" />
+                <ScalarProperty Name="ID_Graduant" ColumnName="ID_Graduant" />
+                <ScalarProperty Name="Sur_name" ColumnName="Sur_name" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Third_name" ColumnName="Third_name" />
+                <ScalarProperty Name="Birth_date" ColumnName="Birth_date" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Microdistrict" ColumnName="Microdistrict" />
+                <ScalarProperty Name="Apartment_House" ColumnName="Apartment_House" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="Diplom_number" ColumnName="Diplom_number" />
+                <ScalarProperty Name="Attestat_number" ColumnName="Attestat_number" />
+                <ScalarProperty Name="Date_of_registr" ColumnName="Date_of_registr" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Distrit" ColumnName="Distrit" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Authoriziation" ColumnName="Authoriziation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="ORTModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="id_language" ColumnName="id_language" />
+                <ScalarProperty Name="Language_name" ColumnName="Language_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Limit_of_time">
+            <EntityTypeMapping TypeName="ORTModel.Limit_of_time">
+              <MappingFragment StoreEntitySet="Limit_of_time">
+                <ScalarProperty Name="ID_Time" ColumnName="ID_Time" />
+                <ScalarProperty Name="Date_of_limit" ColumnName="Date_of_limit" />
+                <ScalarProperty Name="Limit_start" ColumnName="Limit_start" />
+                <ScalarProperty Name="Limit_end" ColumnName="Limit_end" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="ORTModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="ID_Position" ColumnName="ID_Position" />
+                <ScalarProperty Name="Position_Name" ColumnName="Position_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reatinship_Graduent_and_Subject_">
+            <EntityTypeMapping TypeName="ORTModel.Reatinship_Graduent_and_Subject_">
+              <MappingFragment StoreEntitySet="Reatinship(Graduent_and_Subject)">
+                <ScalarProperty Name="ID_Reationship" ColumnName="ID_Reationship" />
+                <ScalarProperty Name="ID_Graduent" ColumnName="ID_Graduent" />
+                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipt">
+            <EntityTypeMapping TypeName="ORTModel.Receipt">
+              <MappingFragment StoreEntitySet="Receipt">
+                <ScalarProperty Name="ID_Raceipt" ColumnName="ID_Raceipt" />
+                <ScalarProperty Name="Receipt_num" ColumnName="Receipt_num" />
+                <ScalarProperty Name="Receipt_sum" ColumnName="Receipt_sum" />
+                <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+                <ScalarProperty Name="Bank_branch_num" ColumnName="Bank_branch_num" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Head_of_teacher" ColumnName="Head_of_teacher" />
+                <ScalarProperty Name="Graduent" ColumnName="Graduent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="ORTModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="ID_Region" ColumnName="ID_Region" />
+                <ScalarProperty Name="Region_name" ColumnName="Region_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="School">
+            <EntityTypeMapping TypeName="ORTModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="LocalityAddress" ColumnName="LocalityAddress" />
+                <ScalarProperty Name="LocalitiName" ColumnName="LocalitiName" />
+                <ScalarProperty Name="ID_School" ColumnName="ID_School" />
+                <ScalarProperty Name="School_name" ColumnName="School_name" />
+                <ScalarProperty Name="Postal_zip" ColumnName="Postal_zip" />
+                <ScalarProperty Name="Code_of_school" ColumnName="Code_of_school" />
+                <ScalarProperty Name="Password_school" ColumnName="Password_school" />
+                <ScalarProperty Name="District" ColumnName="District" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subject">
+            <EntityTypeMapping TypeName="ORTModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+                <ScalarProperty Name="Subject_name" ColumnName="Subject_name" />
+                <ScalarProperty Name="Subject_Price" ColumnName="Subject_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ORTModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Add_Access_level" FunctionName="Хранилище ORTModel.Add_Access_level" />
+          <FunctionImportMapping FunctionImportName="Add_Access_ticet" FunctionName="Хранилище ORTModel.Add_Access_ticet" />
+          <FunctionImportMapping FunctionImportName="Add_Category_Graduant" FunctionName="Хранилище ORTModel.Add_Category_Graduant" />
+          <FunctionImportMapping FunctionImportName="Add_District" FunctionName="Хранилище ORTModel.Add_District" />
+          <FunctionImportMapping FunctionImportName="Add_Employee" FunctionName="Хранилище ORTModel.Add_Employee" />
+          <FunctionImportMapping FunctionImportName="Add_Graduant" FunctionName="Хранилище ORTModel.Add_Graduant" />
+          <FunctionImportMapping FunctionImportName="Add_Language" FunctionName="Хранилище ORTModel.Add_Language" />
+          <FunctionImportMapping FunctionImportName="Add_limit_of_time" FunctionName="Хранилище ORTModel.Add_limit_of_time" />
+          <FunctionImportMapping FunctionImportName="Add_Raceipt" FunctionName="Хранилище ORTModel.Add_Raceipt" />
+          <FunctionImportMapping FunctionImportName="Add_Region" FunctionName="Хранилище ORTModel.Add_Region" />
+          <FunctionImportMapping FunctionImportName="Add_School" FunctionName="Хранилище ORTModel.Add_School" />
+          <FunctionImportMapping FunctionImportName="Add_Subject_Price" FunctionName="Хранилище ORTModel.Add_Subject_Price" />
+          <FunctionImportMapping FunctionImportName="Del_Access_level" FunctionName="Хранилище ORTModel.Del_Access_level" />
+          <FunctionImportMapping FunctionImportName="Del_Category_Graduant" FunctionName="Хранилище ORTModel.Del_Category_Graduant" />
+          <FunctionImportMapping FunctionImportName="Del_Distrit" FunctionName="Хранилище ORTModel.Del_Distrit" />
+          <FunctionImportMapping FunctionImportName="Del_Employee" FunctionName="Хранилище ORTModel.Del_Employee" />
+          <FunctionImportMapping FunctionImportName="Del_Graduant" FunctionName="Хранилище ORTModel.Del_Graduant" />
+          <FunctionImportMapping FunctionImportName="Del_Language" FunctionName="Хранилище ORTModel.Del_Language" />
+          <FunctionImportMapping FunctionImportName="Del_Limit_of_time" FunctionName="Хранилище ORTModel.Del_Limit_of_time" />
+          <FunctionImportMapping FunctionImportName="Del_Postion" FunctionName="Хранилище ORTModel.Del_Postion" />
+          <FunctionImportMapping FunctionImportName="Del_Region" FunctionName="Хранилище ORTModel.Del_Region" />
+          <FunctionImportMapping FunctionImportName="Del_School_locialty" FunctionName="Хранилище ORTModel.Del_School_locialty" />
+          <FunctionImportMapping FunctionImportName="Del_Subject" FunctionName="Хранилище ORTModel.Del_Subject" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище ORTModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище ORTModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище ORTModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище ORTModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ORTModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище ORTModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ORTModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище ORTModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище ORTModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="Up_Access_level" FunctionName="Хранилище ORTModel.Up_Access_level" />
+          <FunctionImportMapping FunctionImportName="Up_Category_Graduant" FunctionName="Хранилище ORTModel.Up_Category_Graduant" />
+          <FunctionImportMapping FunctionImportName="Up_District" FunctionName="Хранилище ORTModel.Up_District" />
+          <FunctionImportMapping FunctionImportName="Up_District_Name" FunctionName="Хранилище ORTModel.Up_District_Name" />
+          <FunctionImportMapping FunctionImportName="Up_District_Password" FunctionName="Хранилище ORTModel.Up_District_Password" />
+          <FunctionImportMapping FunctionImportName="Up_District_Region" FunctionName="Хранилище ORTModel.Up_District_Region" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Access_level" FunctionName="Хранилище ORTModel.Up_Employee_Access_level" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Address" FunctionName="Хранилище ORTModel.Up_Employee_Address" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Authorization_login" FunctionName="Хранилище ORTModel.Up_Employee_Authorization_login" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Authorization_Password" FunctionName="Хранилище ORTModel.Up_Employee_Authorization_Password" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Birth_date" FunctionName="Хранилище ORTModel.Up_Employee_Birth_date" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Date_of_appoinment" FunctionName="Хранилище ORTModel.Up_Employee_Date_of_appoinment" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_District" FunctionName="Хранилище ORTModel.Up_Employee_District" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Email" FunctionName="Хранилище ORTModel.Up_Employee_Email" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Fired" FunctionName="Хранилище ORTModel.Up_Employee_Fired" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_First_name" FunctionName="Хранилище ORTModel.Up_Employee_First_name" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Gender" FunctionName="Хранилище ORTModel.Up_Employee_Gender" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_INN_passport" FunctionName="Хранилище ORTModel.Up_Employee_INN_passport" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Login" FunctionName="Хранилище ORTModel.Up_Employee_Login" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Password" FunctionName="Хранилище ORTModel.Up_Employee_Password" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Phone_number" FunctionName="Хранилище ORTModel.Up_Employee_Phone_number" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Position" FunctionName="Хранилище ORTModel.Up_Employee_Position" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_School" FunctionName="Хранилище ORTModel.Up_Employee_School" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Surname" FunctionName="Хранилище ORTModel.Up_Employee_Surname" />
+          <FunctionImportMapping FunctionImportName="Up_Employee_Third_name" FunctionName="Хранилище ORTModel.Up_Employee_Third_name" />
+          <FunctionImportMapping FunctionImportName="Up_Employees" FunctionName="Хранилище ORTModel.Up_Employees" />
+          <FunctionImportMapping FunctionImportName="Up_Employees_Date_leaving_Fired" FunctionName="Хранилище ORTModel.Up_Employees_Date_leaving_Fired" />
+          <FunctionImportMapping FunctionImportName="Up_Employees_Receipt_Bank_b_num" FunctionName="Хранилище ORTModel.Up_Employees_Receipt_Bank_b_num" />
+          <FunctionImportMapping FunctionImportName="Up_Employees_Receipt_Date" FunctionName="Хранилище ORTModel.Up_Employees_Receipt_Date" />
+          <FunctionImportMapping FunctionImportName="Up_Employees_Receipt_num" FunctionName="Хранилище ORTModel.Up_Employees_Receipt_num" />
+          <FunctionImportMapping FunctionImportName="Up_Employees_Receipt_sum" FunctionName="Хранилище ORTModel.Up_Employees_Receipt_sum" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant" FunctionName="Хранилище ORTModel.Up_Graduant" />
+          <FunctionImportMapping FunctionImportName="UP_Graduant_Access_Notification" FunctionName="Хранилище ORTModel.UP_Graduant_Access_Notification" />
+          <FunctionImportMapping FunctionImportName="UP_Graduant_Access_ticket_3x4" FunctionName="Хранилище ORTModel.UP_Graduant_Access_ticket_3x4" />
+          <FunctionImportMapping FunctionImportName="UP_Graduant_Access_ticket_Doc_number" FunctionName="Хранилище ORTModel.UP_Graduant_Access_ticket_Doc_number" />
+          <FunctionImportMapping FunctionImportName="UP_Graduant_Access_ticket_Doc_selection" FunctionName="Хранилище ORTModel.UP_Graduant_Access_ticket_Doc_selection" />
+          <FunctionImportMapping FunctionImportName="UP_Graduant_Access_ticket_Ppassport" FunctionName="Хранилище ORTModel.UP_Graduant_Access_ticket_Ppassport" />
+          <FunctionImportMapping FunctionImportName="UP_Graduant_Access_ticket_Psignature" FunctionName="Хранилище ORTModel.UP_Graduant_Access_ticket_Psignature" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Apartment_House" FunctionName="Хранилище ORTModel.Up_Graduant_Apartment_House" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Attesstat_number" FunctionName="Хранилище ORTModel.Up_Graduant_Attesstat_number" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Authorization_Login" FunctionName="Хранилище ORTModel.Up_Graduant_Authorization_Login" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Authorization_Password" FunctionName="Хранилище ORTModel.Up_Graduant_Authorization_Password" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Birth_date" FunctionName="Хранилище ORTModel.Up_Graduant_Birth_date" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Category" FunctionName="Хранилище ORTModel.Up_Graduant_Category" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Diplom_number" FunctionName="Хранилище ORTModel.Up_Graduant_Diplom_number" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Email" FunctionName="Хранилище ORTModel.Up_Graduant_Email" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Firstname" FunctionName="Хранилище ORTModel.Up_Graduant_Firstname" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Gender" FunctionName="Хранилище ORTModel.Up_Graduant_Gender" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Language" FunctionName="Хранилище ORTModel.Up_Graduant_Language" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_login" FunctionName="Хранилище ORTModel.Up_Graduant_login" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_MicroDistrict" FunctionName="Хранилище ORTModel.Up_Graduant_MicroDistrict" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Password" FunctionName="Хранилище ORTModel.Up_Graduant_Password" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Phone_number" FunctionName="Хранилище ORTModel.Up_Graduant_Phone_number" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Receipt_Bank_Branch_num" FunctionName="Хранилище ORTModel.Up_Graduant_Receipt_Bank_Branch_num" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Receipt_Num" FunctionName="Хранилище ORTModel.Up_Graduant_Receipt_Num" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Receipt_Payment_Date" FunctionName="Хранилище ORTModel.Up_Graduant_Receipt_Payment_Date" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Receipt_Sum" FunctionName="Хранилище ORTModel.Up_Graduant_Receipt_Sum" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_School" FunctionName="Хранилище ORTModel.Up_Graduant_School" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Street" FunctionName="Хранилище ORTModel.Up_Graduant_Street" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Subject" FunctionName="Хранилище ORTModel.Up_Graduant_Subject" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Surname" FunctionName="Хранилище ORTModel.Up_Graduant_Surname" />
+          <FunctionImportMapping FunctionImportName="Up_Graduant_Thirname" FunctionName="Хранилище ORTModel.Up_Graduant_Thirname" />
+          <FunctionImportMapping FunctionImportName="Up_Language" FunctionName="Хранилище ORTModel.Up_Language" />
+          <FunctionImportMapping FunctionImportName="Up_Limit_of_time" FunctionName="Хранилище ORTModel.Up_Limit_of_time" />
+          <FunctionImportMapping FunctionImportName="UP_Limit_of_time_Date" FunctionName="Хранилище ORTModel.UP_Limit_of_time_Date" />
+          <FunctionImportMapping FunctionImportName="UP_Limit_of_time_End" FunctionName="Хранилище ORTModel.UP_Limit_of_time_End" />
+          <FunctionImportMapping FunctionImportName="UP_Limit_of_time_Start" FunctionName="Хранилище ORTModel.UP_Limit_of_time_Start" />
+          <FunctionImportMapping FunctionImportName="Up_Postion" FunctionName="Хранилище ORTModel.Up_Postion" />
+          <FunctionImportMapping FunctionImportName="Up_Region" FunctionName="Хранилище ORTModel.Up_Region" />
+          <FunctionImportMapping FunctionImportName="Up_School" FunctionName="Хранилище ORTModel.Up_School" />
+          <FunctionImportMapping FunctionImportName="Up_School_Code" FunctionName="Хранилище ORTModel.Up_School_Code" />
+          <FunctionImportMapping FunctionImportName="Up_School_District" FunctionName="Хранилище ORTModel.Up_School_District" />
+          <FunctionImportMapping FunctionImportName="Up_School_Locality_Address" FunctionName="Хранилище ORTModel.Up_School_Locality_Address" />
+          <FunctionImportMapping FunctionImportName="Up_School_Locality_Name" FunctionName="Хранилище ORTModel.Up_School_Locality_Name" />
+          <FunctionImportMapping FunctionImportName="Up_School_Name" FunctionName="Хранилище ORTModel.Up_School_Name" />
+          <FunctionImportMapping FunctionImportName="Up_School_Password" FunctionName="Хранилище ORTModel.Up_School_Password" />
+          <FunctionImportMapping FunctionImportName="Up_School_Postal_zip" FunctionName="Хранилище ORTModel.Up_School_Postal_zip" />
+          <FunctionImportMapping FunctionImportName="UpCost_of_Test" FunctionName="Хранилище ORTModel.UpCost_of_Test" />
+          <FunctionImportMapping FunctionImportName="UpSubject" FunctionName="Хранилище ORTModel.UpSubject" />
+          <FunctionImportMapping FunctionImportName="GetHeadOfTeacher" FunctionName="Хранилище ORTModel.GetHeadOfTeacher">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ORTModel.GetHeadOfTeacher_Result">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Third_Name" ColumnName="Third_Name" />
+                <ScalarProperty Name="Birth_date" ColumnName="Birth_date" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="INN_passport" ColumnName="INN_passport" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Date_of_appointment" ColumnName="Date_of_appointment" />
+                <ScalarProperty Name="Position_Name" ColumnName="Position_Name" />
+                <ScalarProperty Name="Fired" ColumnName="Fired" />
+                <ScalarProperty Name="Region_name" ColumnName="Region_name" />
+                <ScalarProperty Name="District_name" ColumnName="District_name" />
+                <ScalarProperty Name="School_name" ColumnName="School_name" />
+                <ScalarProperty Name="Code_of_school" ColumnName="Code_of_school" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Add_HeadOfTeacher" FunctionName="Хранилище ORTModel.Add_HeadOfTeacher" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

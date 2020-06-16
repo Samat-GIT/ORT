@@ -1,0 +1,36 @@
+﻿@model IEnumerable<webort.Models.SchoolModel>
+@using GridMvc.Html
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<hr />
+<p>
+    <a href="CreateSchool" class="btn btn-primary"><span class='glyphicon glyphicon-plus'></span>Добавить школу</a>
+</p>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+<div class="card" style="width: 18rem;">
+    @Html.Grid(Model).Columns(Columns =>
+{ 
+    
+    Columns.Add(c => c.region).Titled("Регион").Filterable(true);
+    Columns.Add(c => c.districtname).Titled("Район(город)").Filterable(true);
+    Columns.Add(c => c.school_name).Titled("Наименование школы").Filterable(true);
+    Columns.Add(c => c.postal_zip).Titled("Почтовый индекс").Filterable(false);
+    Columns.Add(c => c.code_of_school).Titled("Код школы").Filterable(false);
+    Columns.Add(c => c.password_school).Titled("Пароль школы").Filterable(false);
+    Columns.Add(c => c.localityname).Titled("Местонахождение").Filterable(false);
+    Columns.Add(c => c.localityaddress).Titled("Адрес школы").Filterable(false);
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnEdit =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Edit", new { id = btnEdit.id_School }) + "' class='btn btn-warning'><span class='far fa-edit'></span> Edit</a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+    Columns.Add().Encoded(false).Sanitized(false).RenderValueAs(btnDel =>
+    {
+        string htmlstr = "<a href='" + @Url.Action("Delete", new { id = btnDel.id_School }) + "' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Delete</a>";
+        return MvcHtmlString.Create(htmlstr);
+    });
+}).WithPaging(6).WithGridItemsCount("Общее количество строк").Sortable(true)
+
+</div>

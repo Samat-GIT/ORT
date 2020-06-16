@@ -1,0 +1,42 @@
+﻿@model webort.District_town_
+
+@{
+    ViewBag.Title = "Delete";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<h3>Вы действительно хотите удалить это ?</h3>
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                <label>Регион</label>
+                <h4>
+                    @Html.DisplayFor(model=>model.Region1.Region_name)
+                </h4>
+            </td>
+            <td>
+                <label>Наименование района(города)</label>
+                <h4>
+                    @Html.DisplayFor(model=>model.District_name)
+                </h4>
+            </td>
+            <td>
+                <label>Пароль района(города)</label>
+                <h4>
+                    @Html.DisplayFor(model=>model.Password_district)
+                </h4>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+             <i class="fas fa-angle-double-left">
+            @Html.ActionLink("Вернуться назада", "GetDistrict")
+             </i>
+        </div>
+    }
+</div>

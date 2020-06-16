@@ -1,0 +1,38 @@
+﻿@model  IQueryable<School>
+
+@{
+    Layout = null;
+}
+<link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet" />
+<link href="~/Content/Shared/base.css" rel="stylesheet" />
+<script src="~/Scripts/Shared/site.js"></script>
+<script src="~/Scripts/MvcGrid/mvc-grid.js"></script>
+<div class="row">
+    <div class="widget example col">
+        <div class="widget-header">
+            <div class="fa fa-bars"></div>
+            <span>Pager with rows per page selection</span>
+        </div>
+        <div class="widget-content">
+            @*@(Html
+      .Grid(Model)
+      .Build(columns =>
+      {
+          columns.Add(model => model.Name).Titled("Name");
+          columns.Add(model => model.Surname).Titled("Surname");
+          columns.Add(model => model.MaritalStatus).Titled("Marital status");
+
+          columns.Add(model => model.Age).Titled("Age");
+          columns.Add(model => model.Birthday).Titled("Birthday").Formatted("{0:d}");
+          columns.Add(model => model.IsWorking).Titled("Employed");
+      })
+      .Using(GridFilterMode.Header)
+      .Empty("No data found")
+      .Filterable()
+      .Sortable()
+      .Pageable()*@
+            )
+        </div>
+    </div>
+
+</div>

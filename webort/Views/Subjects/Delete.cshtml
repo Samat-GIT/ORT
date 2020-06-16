@@ -1,0 +1,87 @@
+﻿@model webort.Subject
+
+@{
+    ViewBag.Title = "Delete";
+}
+    @*<link href="@Url.Content("~/Content/CenterModal.css")" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="ModalDel-label">Удалить предмет</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Вы действительно хотите удалить это?</h3>
+                        <div>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <label>Наименования предмета</label>
+                                        <h4>
+                                            @Html.DisplayFor(model => model.Subject_name)
+                                        </h4>
+                                    </td>
+                                    <td>
+                                        <label>Цена за предмета</label>
+                                        <h4>
+                                            @Html.DisplayFor(model => model.Subject_Price)
+                                        </h4>
+                                    </td>
+                                </tr>
+                            </table>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Удалить" class="btn btn-danger" />
+                                </div>
+                            }
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="btnCancel">Отмена</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<h3>Вы действительно хотите удалить это?</h3>
+<h3>@ViewBag.message</h3>
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                <label>Наименования предмета</label>
+                <h4>
+                    @Html.DisplayFor(model => model.Subject_name)
+                </h4>
+            </td>
+            <td>
+                <label>Цена за предмета</label>
+                <h4>
+                    @Html.DisplayFor(model => model.Subject_Price)
+                </h4>
+            </td>
+        </tr>
+    </table>
+    <hr align="center" width="1150" size="2" color="#ff0000" />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+        </div>
+        <div>
+            <i class="fas fa-angle-double-left">
+                @Html.ActionLink("Вернуться назад", "main")
+            </i>
+        </div>
+    }
+</div>

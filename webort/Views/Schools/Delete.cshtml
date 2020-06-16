@@ -1,0 +1,63 @@
+﻿@model webort.School
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<h3>Вы действительно хотите удалить это ?</h3>
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                <label>Район (город)</label>
+                <h4>
+                    @Html.DisplayFor(model => model.District_town_.District_name)
+                </h4>
+            </td>
+            <td>
+                <label>Наименование школы</label>
+                <h4>
+                    @Html.DisplayFor(model => model.School_name)
+                </h4>
+            </td>
+            <td>
+                <label>Почтовый индекс</label>
+                <h4>
+                    @Html.DisplayFor(model => model.Postal_zip)
+                </h4>
+            </td>
+            <td>
+                <label>Код школы</label>
+                <h4>
+                    @Html.DisplayFor(model => model.Code_of_school)
+                </h4>
+            </td>
+            <td>
+                <label>Пароль школы</label>
+                <h4>
+                    @Html.DisplayFor(model => model.Password_school)
+                </h4>
+            </td>
+            <td>
+                <label>Местонахождение</label>
+                <h4>
+                    @Html.DisplayFor(model => model.LocalitiName)
+                </h4>
+            </td>
+            <td>
+                <label>Адрес</label>
+                <h4>
+                    @Html.DisplayFor(model => model.LocalityAddress)
+                </h4>
+            </td>
+        </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Удалить" class="btn btn-default" /> |
+                 <i class="fas fa-angle-double-left">
+                @Html.ActionLink("Вернуться назад", "GridMvcExcample")
+                  </i>
+            </div>
+        }
+</div>

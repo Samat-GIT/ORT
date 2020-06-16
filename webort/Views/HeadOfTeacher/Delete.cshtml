@@ -1,0 +1,152 @@
+﻿@model webort.Employees
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.First_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Third_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Third_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birth_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birth_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INN_passport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INN_passport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_appointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_appointment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Access_level1.Access_level1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Access_level1.Access_level1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Authorization.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Authorization.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District_town_.District_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District_town_.District_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position1.Position_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position1.Position_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.School1.School_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School1.School_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
